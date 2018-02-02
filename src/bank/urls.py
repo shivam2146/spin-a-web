@@ -12,6 +12,8 @@ Including another URLconf
 """
 from django.urls import path
 from django.views.generic import TemplateView
+from .views import home
 urlpatterns = [
-    path('home/',TemplateView.as_view(template_name="home.html")),
+    #path('home/',TemplateView.as_view(template_name="home.html")),
+    path('home/',home)
 ]
