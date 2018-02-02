@@ -12,8 +12,9 @@ Including another URLconf
 """
 from django.urls import path
 from django.views.generic import TemplateView
-from .views import home
+from .views import home,CustomerListView
 urlpatterns = [
     #path('home/',TemplateView.as_view(template_name="home.html")),
-    path('home/',home)
+    path('home/',home),
+    path('cus/',Cus.as_view())
 ]

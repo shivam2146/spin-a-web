@@ -2,5 +2,15 @@
 {%block title%} {{block.super}}|home {%endblock title%}
 {% block content %}
  <h3>Home</h3>
+ <form id="searchform" action="{% url 'cus_search_list_view' %}" method="get" accept-charset="utf-8">
+     <button class="searchbutton" type="submit">
+       <i class="fa fa-search"></i>
+     </button>
+     <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+   </form>
 
+ <ul>
+   {% for obj in object_list %}
+  <li>{{obj.b_code}}||{{obj.b_name}} </li>
+  {%endfor%}
  {% endblock content%}
