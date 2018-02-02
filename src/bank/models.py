@@ -9,3 +9,12 @@ class Bank(models.Model):
     b_email   = models.EmailField(max_length=254)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     b_phone = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+
+class BankManager(models.Model):
+    Manager_id          = models.CharField(max_length=50,primary_key=True)
+    manager_username    = models.CharField(max_length=100)
+    manager_name        = models.CharField(max_length=100)
+    manager_address     = models.TextField()
+    manager_email       = models.EmailField(max_length=254)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    manager_phone = models.CharField(validators=[phone_regex], max_length=17, blank=True)
