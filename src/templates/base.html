@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  {% include "snippets/css.html"%}
+  <title>{%block title %}DUCS Bank{%endblock title%}</title>
+</head>
+<body>
+  {% include "snippets/nav.html" %}
+  <div class="container">
+  {% block content %} {% endblock content%}
+</div>
+{% include "snippets/js.html"%}
+</body>
+</html>
