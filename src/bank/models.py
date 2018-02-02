@@ -18,3 +18,17 @@ class BankManager(models.Model):
     manager_email       = models.EmailField(max_length=254)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     manager_phone = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+ACCOUNTTYPE_CHOICES = (
+    ('saving','Saving'),
+    ('current','Current'),
+    ('recurring deposit','Recurring Deposit'),
+    ('fixed deposit','Fixed Deposit')
+)
+class Customer(models.Model):
+    cus_accno = models.CharField(max_length=34)
+    cus_cifno = models.DecimalField(max_digits=11,decimal_places=0)
+    cus_bcode  = models.ForeignKey(Bank,on_delete=models.CASCADE)
+    cus_accountType = models.CharField(max_length=25,choices= ACCOUNTTYPE_CHOICES)
+    cus_balance = models.DecimalField(max_digits=10, decimal_places=2)
+    cus_acc_start_date = models.DateField(auto_now_add=True)
+    cus_acc_status = models.BooleanField(default = True)
