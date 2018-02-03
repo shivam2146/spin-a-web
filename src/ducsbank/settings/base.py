@@ -25,8 +25,9 @@ SECRET_KEY = 'b=gmu6qnkb1robb3^=70#v5npc)a-fjj8mc^wbgwr0#^9@$wr^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = []
+LOGIN_REDIRECT_URL = 'logredi/'
 
 # Application definition
 

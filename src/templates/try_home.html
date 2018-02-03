@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+{%block title%} {{block.super}}|home {%endblock title%}
+{% block content %}
+ <h3>Home</h3>
+ <form id="searchform"  method="post" accept-charset="utf-8">
+    {% csrf_token %}
+     <button class="searchbutton" type="submit">
+       <i class="fa fa-search"></i>
+     </button>
+     <input class="searchfield"  name="sb" type="text" placeholder="Search">
+   </form>
+
+ <ul>
+   {% for obj in object_list %}
+  <li>{{obj.cus_accno}}||{{obj.cus_username}} </li>
+  {%endfor%}
+ {% endblock content%}

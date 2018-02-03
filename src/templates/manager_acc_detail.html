@@ -1,0 +1,66 @@
+{% extends "base.html"%}
+{%block title%} {{block.super}}|home {%endblock title%}
+{% block content %}
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <a class="navbar-brand" href="/bank/man-home/">MANAGER PORTAL</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault" align="right">
+        <form class="form-inline mt-2 mt-md-0" align="right">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Bank Details<span class="sr-only"></span></a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/man-cus/">Customers</a>
+            </li>
+          </ul>
+        </nav>
+
+        <main class="col-sm-9" align="center">
+        <h2>Manager Account Details</h2>
+        <div class="table-responsive">
+          <table class="table table-striped" align="center">
+            <tbody>
+                <tr>
+                  <td>MANAGER ID</td>
+                  <td>{{obj.Manager_id}}</td>
+                </tr>
+                <tr>
+                  <td>MANAGER NAME</td>
+                  <td>{{obj.manager_name}}</td>
+                </tr>
+                <tr>
+                  <td>ADDRESS</td>
+                  <td>{{obj.manager_address}}</td>
+                </tr>
+                <tr>
+                  <td>EMAIL</td>
+                  <td>{{obj.manager_email}}</td>
+                </tr>
+                <tr>
+                  <td>PHONE</td>
+                  <td>{{obj.manager_phone}}</td>
+                </tr>
+                </tbody>
+              </table>
+          </div>
+
+
+        </main>
+      </div>
+    </div>
+
+ {% endblock content%}

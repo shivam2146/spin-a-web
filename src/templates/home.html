@@ -1,16 +1,18 @@
 {% extends "base.html"%}
 {%block title%} {{block.super}}|home {%endblock title%}
 {% block content %}
- <h3>Home</h3>
- <form id="searchform" action="{% url 'cus_search_list_view' %}" method="get" accept-charset="utf-8">
-     <button class="searchbutton" type="submit">
-       <i class="fa fa-search"></i>
-     </button>
-     <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
-   </form>
+{%load static%}
+<div class="cover-container text-center d-flex h-100 p-3 mx-auto flex-column"
+style="background-image:url('{%static 'bank/bank.jpg'%}');">
+<main role="main" class="inner cover">
+<h1 class="cover-heading">WELCOME TO ONLINE BANKING SYSTEMS!</h1>
+<p class="lead">
+<div class="text-center">
+<a href="bank/login/" class="btn btn-lg btn-secondary">Customer Login</a>
+<a href="bank/login/" class="btn btn-lg btn-secondary">Manager Login</a>
+</div>
+</p>
+</main>
+</div>
 
- <ul>
-   {% for obj in object_list %}
-  <li>{{obj.b_code}}||{{obj.b_name}} </li>
-  {%endfor%}
  {% endblock content%}

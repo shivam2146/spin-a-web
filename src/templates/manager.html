@@ -1,0 +1,74 @@
+{% extends "base.html"%}
+{%block title%} {{block.super}}|home {%endblock title%}
+{% block content %}
+
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <a class="navbar-brand" href="#">MANAGER PORTAL</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault" align="right">
+        <form class="form-inline mt-2 mt-md-0" align="right">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/man-acc/">Account Details</a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/man-cus/">Customers</a>
+            </li>
+          </ul>
+        </nav>
+
+        <main class="col-sm-12" align="center">
+        <h2>Bank Details</h2>
+        <div class="table-responsive">
+          <table class="table table-striped" align="left">
+            <tbody>
+                <tr>
+                  <td>Bank Code</td>
+                  <td>{{obj.b_code}}</td>
+                </tr>
+                <tr>
+                  <td>BANK NAME</td>
+                  <td>{{obj.b_name}}</td>
+                </tr>
+                <tr>
+                  <td>IFSC CODE</td>
+                  <td>{{obj.b_ifsc}}</td>
+                </tr>
+                <tr>
+                  <td>ADDRESS</td>
+                  <td>{{obj.b_address}}</td>
+                </tr>
+                <tr>
+                  <td>EMAIL</td>
+                  <td>{{obj.b_email}}</td>
+                </tr>
+                <tr>
+                  <td>PHONE</td>
+                  <td>{{obj.b_phone}}</td>
+                </tr>
+                </tbody>
+              </table>
+          </div>
+
+
+        </main>
+      </div>
+    </div>
+
+
+
+ {% endblock content%}
