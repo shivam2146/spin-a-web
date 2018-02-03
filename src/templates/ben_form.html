@@ -1,6 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <a class="navbar-brand" href="#">CUSTOMER PORTAL</a>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault" align="right">
+        <form class="form-inline mt-2 mt-md-0" align="right">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+</nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+              <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/bank/cus-det/">Account Details<span class="sr-only"></span></a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/cus-tra/">Transfer funds to Beneficiary</a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">View account statement</a>
+            </li>
+          </ul>
+
+
+      </div>
+    </div>
+
     <h1>Add Benificary</h1>
     <form method="POST" >
       {% csrf_token %}
