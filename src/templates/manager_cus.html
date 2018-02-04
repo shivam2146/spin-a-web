@@ -1,0 +1,67 @@
+{% extends "base.html"%}
+{%block title%} {{block.super}}|home {%endblock title%}
+{% block content %}
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <a class="navbar-brand" href="/bank/man-home">MANAGER PORTAL</a>
+
+      <div id="navbarsExampleDefault" align="right">
+        <form class="form-inline mt-2 mt-md-0" align="right" id="searchform"  method="post" accept-charset="utf-8">
+          {% csrf_token %}
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" name="sb">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class=" hidden-xs-down bg-faded sidebar">
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/bank/man-acc/">Bank Details<span class="sr-only"></span></a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/man-acc/">Account Details</a>
+            </li>
+          </ul>
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/logout">Logout</a>
+            </li>
+          </ul>
+</div>
+<div class="container " align="center">
+  <h2>List of Customers along with account details</h2>
+  <table class="table-responsive table-bordered" align="center" bordercolor=WHITE border=10>
+    <thead>
+      <tr>
+        <th>ACCOUNT NUMBER</th>
+        <th>BANK CODE</th>
+        <th>ACCOUNT TYPE</th>
+        <th>BALANCE</th>
+        <th>ACCOUNT START DATE</th>
+        <th>ACCOUNT STATUS</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for obj in cus_list %}
+      <tr>
+        <td>{{obj.cus_accno}}</td>
+        <td>{{obj.cus_bcode.b_code}}</td>
+        <td>{{obj.cus_accountType}}</td>
+        <td>{{obj.cus_balance}}</td>
+        <td>{{obj.cus_acc_start_date}}</td>
+        <td>{{obj.cus_acc_status}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+
+
+ {% endblock content%}
