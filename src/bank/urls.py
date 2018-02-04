@@ -12,7 +12,7 @@ Including another URLconf
 """
 from django.urls import path
 #from django.views.generic import TemplateView
-from .views import home,logredi,ben_form,manHome,manAcc,manCus,cusDet
+from .views import home,logredi,ben_form,manHome,manAcc,manCus,cusDet,cusTra,cusPay
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     #path('cus/',home),
@@ -21,12 +21,13 @@ urlpatterns = [
     path('logout/', auth_views.logout, {'next_page': '/'}),
 
     path('cus-det/',cusDet),
-    #path('cus-tra/',cusTra),
+    path('cus-tra/',cusTra),
     path('cus-ben/',ben_form),
 
     path('man-home/',manHome),
     path('man-cus/',manCus),
     path('man-acc/',manAcc),
 
+    path('pay/',cusPay)
 
 ]
