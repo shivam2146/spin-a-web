@@ -1,0 +1,66 @@
+{% extends "base.html"%}
+{%block title%} {{block.super}}|home {%endblock title%}
+{% block content %}
+
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <a class="navbar-brand " href="/bank/cus-det">CUSTOMER PORTAL</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault" align="right">
+        <form class="form-inline mt-2 mt-md-0" align="right" id="searchform"  method="post" accept-charset="utf-8">
+          {% csrf_token %}
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" name="sb">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class=" hidden-xs-down bg-faded sidebar">
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/bank/cus-ben">Add a Beneficiary<span class="sr-only"></span></a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/cus-det/">Account Details</a>
+            </li>
+          </ul>
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/cus-det/">Account statement</a>
+            </li>
+          </ul>
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/bank/logout">Logout</a>
+            </li>
+          </ul>
+        </nav>
+</div>
+<div class="container " align="center">
+  <h1>Enter Details</h1>
+  <form action="/bank/pay/" method="post">
+    {% csrf_token %}
+    ACCOUNT NUMBER:<br>
+   <input type="text" name="AccNo" value="">
+   <br>
+   BANK NAME :<br>
+   <input type="text" name="bn" value="">
+   <br>
+   IFSC CODE:<br>
+   <input type="text" name="ifsc" value="">
+   <br>
+   AMOUNT:<br>
+   <input type="number" max="10000000" min="0" name="Amo" value="">
+   <br><br>
+   <input type="submit" value="Make Payment">
+</form>
+</div>
+
+
+ {% endblock content%}
